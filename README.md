@@ -178,8 +178,8 @@ We opted for a Monorepo using **PNPM Workspaces** to share the `@mini-crm/shared
 - **Why:** TypeORM's decorator-based approach integrates natively with NestJS. Furthermore, it provides granular control over SQL migrations and avoids the heavy Rust query-engine binary required by Prisma, keeping our Docker image sizes small and cold starts fast.
 
 ### 3. Data Integrity over Soft Deletes
-- **Decision:** Implemented hard deletes with strict Foreign Key constraints instead of Soft Deletes (`deleted_at`).
-- **Why:** For the scope of this challenge, this demonstrates a strong grasp of data resilience. The database blocks the deletion of a patient if they have linked appointments, preventing orphaned records and protecting clinical history.
+- **Decision:** Implemented hard deletes with Cascade Foreign Key constraints instead of Soft Deletes (`deleted_at`).
+- **Why:** For the scope of this challenge, this ensures strict database hygiene. If a patient is removed, the database automatically cascades the deletion to their linked appointments, preventing orphaned records and maintaining structural consistency without the added complexity of managing soft states.
 
 ### 4. Docker Multi-stage Builds & Nginx
 - **Decision:** Both API and Web Dockerfiles use multi-stage builds.

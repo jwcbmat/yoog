@@ -175,9 +175,9 @@ Optou-se por um Monorepo utilizando **PNPM Workspaces** para compartilhar o paco
 - **Decisão:** Escolha do **TypeORM** em vez do Prisma.
 - **Por quê:** A abordagem baseada em decorators do TypeORM se integra de forma nativa ao NestJS. Além disso, ele proporciona um controle granular sobre as migrações SQL e evita o binário pesado da query-engine em Rust exigido pelo Prisma. Isso mantém o tamanho das nossas imagens Docker reduzido e garante tempos de inicialização (cold starts) muito mais rápidos.
 
-### 3. Integridade de Dados ao invés de Soft Deletes
-- **Decisão:** Foram implementados hard deletes com restrições rigorosas de Chave Estrangeira (Foreign Key), em vez de exclusão lógica (Soft Deletes via `deleted_at`).
-- **Por quê:** Para o escopo deste desafio, isso demonstra uma forte compreensão de resiliência de dados. O banco de dados bloqueia a exclusão de um paciente caso este possua atendimentos vinculados, evitando registros órfãos e protegendo o histórico clínico.
+### 3. Integridade de Dados vs Soft Deletes
+- **Decisão:** Implementação de exclusões físicas (hard deletes) com restrições de Chave Estrangeira em Cascata, em vez de Soft Deletes (`deleted_at`).
+- **Por quê:** Para o escopo deste desafio, isso garante a higiene estrita do banco de dados. Se um paciente for removido, o banco de dados exclui automaticamente os agendamentos vinculados a ele, evitando registros órfãos e mantendo a consistência estrutural sem a complexidade adicional de gerenciar estados "soft".
 
 ### 4. Docker Multi-stage Builds & Nginx
 - **Decisão:** Ambos os Dockerfiles (API e Web) utilizam multi-stage builds.
