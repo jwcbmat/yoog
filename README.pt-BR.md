@@ -89,6 +89,7 @@ docker-compose up --build
 - Backend disponível em: `http://localhost:3000`
 - PostgreSQL disponível em: `5432`
 
+> 💡 use: `user: admin@yoog.com e password: password123` para entrar
 
 Essa configuração utiliza um `healthcheck` no banco de dados, garantindo que a API só inicie a sua execução quando o PostgreSQL estiver 100% pronto para aceitar conexões.
 
@@ -168,7 +169,7 @@ Atualiza a descrição textual/queixa de um atendimento existente.
 ## Decisões de Arquitetura & Trade-offs
 
 ### 1. Monorepo & Validação Isomórfica (Zod)
-Optou-se por um Monorepo utilizando **PNPM Workspaces** para compartilhar o pacote `@mini-crm/shared` entre o Frontend e o Backend.
+Monorepo utilizando **PNPM Workspaces** para compartilhar o pacote `@mini-crm/shared` entre o Frontend e o Backend.
 - **Por quê:** Ao centralizar Definições de Tipo, Máquinas de Estado e Schemas de Validação (Zod), criamos uma Fonte Única de Verdade (Single Source of Truth).
 - **Vantagem:** O uso do `ZodValidationPipe` no NestJS e do `@hookform/resolvers/zod` no React garante que as regras de validação que o usuário visualiza na tela sejam exatamente as mesmas que o banco de dados impõe, prevenindo inconsistências entre a API e a Web.
 
