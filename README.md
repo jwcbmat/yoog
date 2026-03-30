@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-black-and-white/f/f1/Pokemans_113.gif?width=396" width="100" alt="Minior Pokémon icon"/>
   <h1>Yoog</h1>
   <p><strong>A Full-Stack Patient and Appointment Management System</strong></p>
 </div>

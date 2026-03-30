@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-black-and-white/f/f1/Pokemans_113.gif?width=396" width="100" alt="Minior Pokémon icon"/>
   <h1>Yoog</h1>
   <p><strong>Um Sistema Full-Stack de Gestão de Pacientes e Atendimentos</strong></p>
 </div>
@@ -110,7 +111,7 @@ Retorna o objeto do paciente criado, incluindo seu UUID.
 
 ### GET /appointments
 
-Lista a fila de atendimentos. Inclui paginação via par��metros de busca (query params).
+Lista a fila de atendimentos. Inclui paginação via parâmetros de busca (query params).
 
 **Headers Necessários:**
 - `Authorization: Bearer <token>`
