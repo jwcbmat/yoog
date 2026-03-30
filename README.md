@@ -92,6 +92,8 @@ docker-compose up --build
 - Backend available at: `http://localhost:3000`
 - PostgreSQL exposed on port: `5432`
 
+> 💡 use: `user: admin@yoog.com and password: password123` to log in
+
 This setup uses a `healthcheck` on the database to ensure the API only starts when PostgreSQL is ready to accept connections.
 
 ## Endpoints
